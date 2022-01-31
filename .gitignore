@@ -1,0 +1,21 @@
+# Logs
+logs
+*.log
+npm-debug.log*
+
+# Dependency directory
+node_modules
+publick
+# Optional npm cache directory
+.npm
+
+#Optional file
+.prettierrc.js
+# Optional REPL history
+.DS_Store
+.idea
+.vscode
+#env
+.env
+#domen info
+domen
