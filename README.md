@@ -1,6 +1,6 @@
 # Адрес бекенда:
 
-https://artem-usachev.nomoredomains.work
+https://api.artem-usachev-diploma.nomoredomains.work 
 
 # публичный ip
 
