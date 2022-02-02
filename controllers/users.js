@@ -15,13 +15,10 @@ const getCurrentUser = (req, res, next) => {
       if (!user) {
         throw new NotFoundError('Нет пользователя с таким id');
       } else {
-        res.status(200).send({ user });
+        res.send({ user });
       }
     })
     .catch((err) => {
-      if (err.name === 'CastError') {
-        next(new BadRequestError('Передан не корректный id пользователя'));
-      }
       next(err);
     });
 };
@@ -34,7 +31,7 @@ const createUser = (req, res, next) => {
       email: req.body.email,
       password: hash,
     }))
-    .then((user) => res.status(200).send({
+    .then((user) => res.send({
       name: user.name,
       email: user.email,
     }))
@@ -44,8 +41,9 @@ const createUser = (req, res, next) => {
       }
       if (err.name === 'ValidationError') {
         next(new BadRequestError('Переданы некорректные данные в методы создания пользователя'));
+      } else {
+        next(err);
       }
-      next(err);
     });
 };
 
@@ -59,14 +57,18 @@ const updateUser = (req, res, next) => {
       if (!user) {
         throw new NotFoundError('Нет пользователя с таким id');
       } else {
-        res.status(200).send(user);
+        res.send(user);
       }
     })
     .catch((err) => {
       if (err.name === 'ValidationError') {
         next(new BadRequestError('Переданы некорректные данные в методы обновления профиля'));
       }
-      next(err);
+      if (err.codeName === 'DuplicateKey') {
+        next(new ConflictError('Email занят другим пользователем'));
+      } else {
+        next(err);
+      }
     });
 };
 

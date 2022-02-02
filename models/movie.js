@@ -27,7 +27,7 @@ const CardSchema = new Schema({
     type: String,
     required: true,
   },
-  trailerLink: {
+  trailer: {
     type: String,
     required: true,
   },

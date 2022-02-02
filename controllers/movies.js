@@ -5,7 +5,7 @@ const BadRequestError = require('../errors/bad-request-error');
 
 const getMovies = (req, res, next) => {
   Movie.find({})
-    .then((movies) => res.status(200).send(movies))
+    .then((movies) => res.send(movies))
     .catch(next);
 };
 
@@ -14,12 +14,13 @@ const createMovie = (req, res, next) => {
     ...(req.body.owner = req.user._id),
     ...req.body,
   })
-    .then((movie) => res.status(200).send(movie))
+    .then((movie) => res.send(movie))
     .catch((err) => {
       if (err.name === 'ValidationError') {
         next(new BadRequestError('Переданы не корректные данные в метод создания фильма'));
+      } else {
+        next(err);
       }
-      next(err);
     });
 };
 
@@ -35,7 +36,7 @@ const deleteMovie = (req, res, next) => {
       if (movie.owner.equals(req.user._id)) {
         Movie.findByIdAndDelete(movie._id)
           .then((movieDelited) => {
-            res.status(200).send(movieDelited);
+            res.send(movieDelited);
           })
           .catch(next);
       } else {
@@ -45,8 +46,9 @@ const deleteMovie = (req, res, next) => {
     .catch((err) => {
       if (err.name === 'CastError') {
         next(new BadRequestError('Передан не корректный id фильма'));
+      } else {
+        next(err);
       }
-      next(err);
     });
 };
 

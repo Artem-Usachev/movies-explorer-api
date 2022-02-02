@@ -1,6 +1,6 @@
 const allowedCors = [
-  'http://artem-usachev-diploma.nomoredomains.work',
-  'https://artem-usachev-diploma.nomoredomains.work',
+  'http://diploma-artem-usachev.nomoredomains.work',
+  'https://diploma-artem-usachev.nomoredomains.work',
   'http://localhost:3000',
   'https://localhost:3000',
 ];
