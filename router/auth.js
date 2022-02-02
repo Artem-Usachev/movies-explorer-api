@@ -3,7 +3,7 @@ const { signinValidator, signupValidator } = require('../utils/validator');
 const { createUser } = require('../controllers/users');
 const checkLogin = require('../controllers/login');
 
-router.post('/api/signin', signinValidator, checkLogin);
-router.post('/api/signup', signupValidator, createUser);
+router.post('/signin', signinValidator, checkLogin);
+router.post('/signup', signupValidator, createUser);
 
 module.exports = router;
