@@ -16,7 +16,7 @@ const { requestLogger, errorLogger } = require('./middlewares/logger');
 const NotFoundError = require('./errors/not-found-error');
 const limiter = require('./utils/limiter');
 
-const { PORT = 3000, MONGO_URL } = process.env;
+const { PORT = 3000, MONGO_URL = 'mongodb://localhost:27017/moviesdb' } = process.env;
 const app = express();
 async function main() {
   await mongoose.connect(MONGO_URL);
