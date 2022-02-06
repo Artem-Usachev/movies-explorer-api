@@ -1,0 +1,33 @@
+{
+  "name": "diploma-beckand",
+  "version": "1.0.0",
+  "description": "",
+  "main": "app.js",
+  "scripts": {
+    "lint": "npx eslint .",
+    "start": "node app.js",
+    "dev": "nodemon app.js"
+  },
+  "author": "Artem Usachev",
+  "license": "ISC",
+  "devDependencies": {
+    "eslint": "^8.4.1",
+    "eslint-config-airbnb-base": "^15.0.0",
+    "eslint-plugin-import": "^2.25.3",
+    "nodemon": "^2.0.15"
+  },
+  "dependencies": {
+    "bcryptjs": "^2.4.3",
+    "celebrate": "^15.0.0",
+    "dotenv": "^11.0.0",
+    "express": "^4.17.1",
+    "express-rate-limit": "^6.2.0",
+    "express-winston": "^4.2.0",
+    "helmet": "^5.0.2",
+    "joi": "^17.5.0",
+    "jsonwebtoken": "^8.5.1",
+    "mongoose": "^6.0.15",
+    "validator": "^13.7.0",
+    "winston": "^3.4.0"
+  }
+}
