@@ -1,7 +1,7 @@
 # Адрес бекенда:
 
-https://api.artem-usachev-diploma.nomoredomains.work 
+api.artem-usachev-diploma.nomoredomains.work
 
 # публичный ip
 
-51.250.26.90
+84.201.140.215
